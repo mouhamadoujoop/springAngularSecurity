@@ -1,0 +1,20 @@
+image: node:20.16.0
+
+build and deploy in gitab pages:
+  cache:
+    paths:
+      - node_modules/
+  stage: deploy
+  script:
+    - npm cache clean --force
+    - npm install -f
+    - npm run build
+    - mkdir -p public
+    - ls dist/spring-boot-3-jwt-security-client/browser/
+    - mv dist/spring-boot-3-jwt-security-client/browser/* public/
+    - ls public/
+  artifacts:
+    paths:
+      - public
+  only:
+    - main

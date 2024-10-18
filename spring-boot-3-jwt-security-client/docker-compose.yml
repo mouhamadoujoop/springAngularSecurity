@@ -1,0 +1,10 @@
+services:
+  front:
+    image: spring-boot-3-jwt-security-client-front:0.0.1
+    container_name: container-spring-boot-3-jwt-security-client-front
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+#docker compose up -d
